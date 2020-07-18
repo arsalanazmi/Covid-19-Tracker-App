@@ -61,7 +61,7 @@ export default function InfoPanel({ data }) {
                 start={0}
                 end={confirmed.value}
                 duration={2.5}
-                seperator=","
+                separator=","
               />
             </Typography>
             <Typography>
@@ -83,7 +83,7 @@ export default function InfoPanel({ data }) {
                 start={0}
                 end={recovered.value}
                 duration={2.5}
-                seperator=","
+                separator=","
               />
             </Typography>
             <Typography>
@@ -101,7 +101,7 @@ export default function InfoPanel({ data }) {
                 start={0}
                 end={deaths.value}
                 duration={2.5}
-                seperator=","
+                separator=","
               />
             </Typography>
             <Typography>
