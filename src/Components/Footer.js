@@ -23,13 +23,15 @@ const Footer = () => {
         Copyright &copy; 2020
       </Typography>
       <Typography variant="h6" className={classes.heading}>
-        Follow Me on {""}
-        <a
-          className={classes.anchorTag}
-          href="https://github.com/arsalanazmi/Covid-19-Tracker-App.git"
-        >
-          Github <GitHubIcon />
-        </a>
+        <span className="github">
+          Follow on: {""}
+          <a
+            className={classes.anchorTag}
+            href="https://github.com/arsalanazmi/Covid-19-Tracker-App.git"
+          >
+            Github <GitHubIcon />
+          </a>
+        </span>
       </Typography>
       <Typography variant="h6" className={classes.heading}>
         Powered By: Arsalan Raza Azmi

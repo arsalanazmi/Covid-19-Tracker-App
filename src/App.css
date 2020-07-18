@@ -25,7 +25,10 @@ body{
     width: 100% !important;
     margin:0 auto !important;
   }
-.nav{
-  display: none;
-}
+  .nav{
+    display: none;
+  }
+  .github{
+    display: none;
+  }
 }
