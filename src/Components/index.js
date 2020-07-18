@@ -1,0 +1,6 @@
+export {default as NavBar} from "./NavBar" 
+export {default as Covid19} from "./Covid19" 
+export {default as CountryPicker} from "./CountryPicker"
+export {default as InfoPanel} from "./InfoPanel"
+export {default as Charts} from "./Charts"
+export {default as Footer} from "./Footer" 

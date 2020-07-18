@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useState} from "react";
+import "./App.css";
+import createResource from "./API";
+import { fetchGlobalData } from "./API";
+import { NavBar, Covid19, CountryPicker, InfoPanel, Charts, Footer } from "./Components";
+import Loader from "react-loader-spinner";
+import {Banner,Header} from "./Images"
 
 function App() {
+  const [country, setCountry] = useState();
+  const fetchedData = createResource(country);
+  
+  const handleCountryChange = async (country) => {
+     await fetchGlobalData(country);
+    setCountry(await country);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <img src={Banner} className="banner" alt="banner" />
+      <Covid19 />
+      <img src={Header} className="covid" alt="Covid_19"/>
+
+      <Suspense fallback={<Loader type="ThreeDots" className="spinner" color="#2BAD60" height="100" width="100" />}>
+        <CountryPicker data={fetchedData} handleCountryChange={handleCountryChange} />
+      </Suspense>
+
+      <Suspense fallback={<Loader type="ThreeDots" className="spinner" color="#2BAD60" height="100" width="100" />}>
+        <InfoPanel data={fetchedData} id="infoPanel" /><br/>
+      </Suspense>
+
+      <Suspense fallback={<Loader type="ThreeDots" className="spinner" color="#2BAD60" height="100" width="100" />}>
+        <Charts data={fetchedData} country={country} />
+      </Suspense>
+
+      <Footer />
     </div>
   );
 }
