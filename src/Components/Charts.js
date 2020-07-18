@@ -41,8 +41,9 @@ const Charts = ({ data, country }) => {
     datasets: [
       {
         label: "People",
-        backgroundColor: ["#ef9d1a", "#3da063", "#f86161"],
         data: [confirmed.value, recovered.value, deaths.value],
+        backgroundColor: ["#ef9d1a", "#3da063", "#f86161"],
+        hoverBackgroundColor: ["#c47807", "#3c6d36", "#ed3131"],
       },
     ],
   };
