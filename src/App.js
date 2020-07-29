@@ -2,9 +2,9 @@ import React, { Suspense, useState} from "react";
 import "./App.css";
 import createResource from "./API";
 import { fetchGlobalData } from "./API";
-import { NavBar, Covid19, CountryPicker, InfoPanel, Charts, Footer } from "./Components";
+import { Header, Covid19, CountryPicker, InfoPanel, Charts, Footer } from "./Components";
 import Loader from "react-loader-spinner";
-import {Banner,Header} from "./Images"
+import {Banner,Heading} from "./Images"
 
 function App() {
   const [country, setCountry] = useState();
@@ -17,10 +17,10 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <Header />
       <img src={Banner} className="banner" alt="banner" />
       <Covid19 />
-      <img src={Header} className="covid" alt="Covid_19"/>
+      <img src={Heading} className="covid" alt="Covid_19"/>
 
       <Suspense fallback={<Loader type="ThreeDots" className="spinner" color="#2BAD60" height="100" width="100" />}>
         <CountryPicker data={fetchedData} handleCountryChange={handleCountryChange} />
