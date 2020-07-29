@@ -2,18 +2,34 @@ import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-around",
-    color: "#6f6f70",
-    marginTop: "3%",
+    padding:"5% 1% 1% 1%",
+    color: "#6e797a",
+    [theme.breakpoints.between(0, 650)]: {
+      flexDirection:'column',
+      textAlign:'center',
+    },
+  },
+  heading: {
+    [theme.breakpoints.between(0,768)]: {
+      fontSize: '16px',
+    },
   },
   anchorTag: {
     color: "#6f6f70",
     textDecoration: "none",
+    "&:hover": {
+      color: "#6f6f70",
+    },
   },
-});
+  icon: {
+    position:'relative',
+    bottom:4,
+  },
+}));
 
 const Footer = () => {
   const classes = useStyles();
@@ -23,13 +39,13 @@ const Footer = () => {
         Copyright &copy; 2020
       </Typography>
       <Typography variant="h6" className={classes.heading}>
-        <span className="github">
+        <span className={classes.github}>
           Follow on: {""}
           <a
             className={classes.anchorTag}
             href="https://github.com/arsalanazmi/Covid-19-Tracker-App.git"
           >
-            Github <GitHubIcon />
+            Github <GitHubIcon className={classes.icon} />
           </a>
         </span>
       </Typography>
@@ -39,4 +55,5 @@ const Footer = () => {
     </div>
   );
 };
+
 export default Footer;
