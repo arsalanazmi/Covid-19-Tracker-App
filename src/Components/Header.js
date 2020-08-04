@@ -28,7 +28,7 @@ const Header = () => {
         <AppBar
           zDepth={3}
           style={{ backgroundColor: "#4a4f4d" }}
-          title="Nike Shoe Store"
+          title="Covid-19 Tracker App"
           iconElementLeft={
             <FontIcon
               onClick={() => {setOpen(!open)}}
