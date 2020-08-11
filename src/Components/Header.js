@@ -1,57 +1,23 @@
-import React, { useState } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import FontIcon from "material-ui/FontIcon";
-import Drawer from "material-ui/Drawer";
-import MenuItem from "material-ui/MenuItem";
-import { Divider } from "@material-ui/core";
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-
-const styles = {
-  navBar: { 
-    top: AppBar.height,
-    backgroundColor: "#dddddd" },
-};
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import {Logo} from "../Images"
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClickAway = () => {
-    setOpen(false);
-  };
-
   return (
-    <MuiThemeProvider>
-      <div 
-      style={{ position: "sticky", zIndex: 10, left: 0, right: 0, top: 0, bottom:0 }}
-      >
-        <AppBar
-          zDepth={3}
-          style={{ backgroundColor: "#4a4f4d" }}
-          title="Covid-19 Tracker App"
-          iconElementLeft={
-            <FontIcon
-              onClick={() => {setOpen(!open)}}
-              style={{ paddingTop: "50%" }}
-              className="material-icons"
-            >
-              menu
-            </FontIcon>
-          }
-        />
-
-        <ClickAwayListener  mouseEvent="onMouseDown" touchEvent="onTouchStart" onClickAway={handleClickAway}>
-          <Drawer open={open} width={250} containerStyle={styles.navBar}>
-            <MenuItem onClick={() => {setOpen(!open)}}> Home </MenuItem>
-            <MenuItem onClick={() => {setOpen(!open)}}> What is Covid-19? </MenuItem>
-            <MenuItem onClick={() => {setOpen(!open)}}> Country Selector </MenuItem>
-            <Divider />
-            <MenuItem onClick={() => {setOpen(!open)}}> Info Panel </MenuItem>
-            <MenuItem onClick={() => {setOpen(!open)}}> Charts </MenuItem>
-          </Drawer>
-        </ClickAwayListener>
-      </div>
-    </MuiThemeProvider>
+    <Navbar collapseOnSelect className="navbar" expand="md" bg="dark" variant="dark" sticky="top">
+    <img src={Logo} className="navlogo" alt="Logo" />
+    <Navbar.Brand href="#home">Covid-19 Tracker</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link href="#Home">Home</Nav.Link>
+          <Nav.Link href="#About">About</Nav.Link>
+          <Nav.Link href="#Country-Selector">Country Selector</Nav.Link>
+          <Nav.Link href="#Info-Panel">Info Panel</Nav.Link>
+          <Nav.Link href="#Charts">Charts</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
