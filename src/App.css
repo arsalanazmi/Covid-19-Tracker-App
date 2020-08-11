@@ -26,6 +26,9 @@ body{
   padding-bottom: 2%;
 }
 @media screen and (max-width: 768px) {
+  .banner{
+    height:230px !important;
+  }
   .chartContainer {
     width: 100% !important;
     margin:0 auto !important;

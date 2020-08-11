@@ -9,7 +9,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     padding: "3% 0",
   },
-  heading: { fontWeight: "bold" },
+  heading: {
+    fontWeight: "bold",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "39px",
+    },
+  },
   para: { padding: "3px 0" },
   cards: { flexGrow: 1, maxWidth: 800, margin: "0 auto", marginBottom: "3%" },
   handWashImg: {
