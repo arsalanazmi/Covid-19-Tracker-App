@@ -1,4 +1,5 @@
 export {default as Background} from "./Background.jpg"
+export {default as Logo} from "./Logo.png"
 export {default as Banner} from "./Banner.png"
 export {default as Heading} from "./Heading.png"
 export {default as Hand_Wash} from "./Hand Wash.png"
