@@ -16,11 +16,11 @@ function App() {
   };
 
   return (
-    <div>
+    <div id="Home">
       <Header />
       <img src={Banner} className="banner" alt="banner" />
       <Covid19 />
-      <img src={Heading} className="covid" alt="Covid_19"/>
+      <img src={Heading} id="Country-Selector" className="covid" alt="Covid_19"/>
 
       <Suspense fallback={<Loader type="ThreeDots" className="spinner" color="#2BAD60" height="100" width="100" />}>
         <CountryPicker data={fetchedData} handleCountryChange={handleCountryChange} />

@@ -5,7 +5,7 @@ const CountryPicker = ({ data, handleCountryChange }) => {
   const countriesList = data.countriesList.read();
 
   return (
-    <div>
+    <div id="Info-Panel">
       <FormControl style={{margin:'0 auto',display:'flex', justifyContent:"center",alignItems:'center'}}>
         <NativeSelect defaultValue="" onChange={(e)=>handleCountryChange(e.target.value)}>
           <option value="">Global</option>

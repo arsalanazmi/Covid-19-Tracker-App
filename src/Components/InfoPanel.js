@@ -45,7 +45,7 @@ export default function InfoPanel({ data }) {
   
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root}  >
       <Grid container justify="center">
 
         <Grid item xs={12} sm={4} md={4}>
@@ -53,7 +53,7 @@ export default function InfoPanel({ data }) {
             <img
               src={Infected}
               className={classes.infectedImage}
-              alt="Infected "
+              alt="Infected"
             />
             <Typography>Total Infected</Typography>
             <Typography variant="h5" component="h2">

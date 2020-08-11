@@ -49,7 +49,7 @@ const Charts = ({ data, country }) => {
   };
 
   return (
-    <div className="chartContainer" style={{ width: "80%", margin: "0 auto" }}>
+    <div className="chartContainer" id="Charts" style={{ width: "80%", margin: "0 auto" }}>
       <Pie data={pieChart} width={650} height={250} />
       <br />
       {country ? (

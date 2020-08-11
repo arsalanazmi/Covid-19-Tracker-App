@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const Covid19 = () => {
   const classes = useStyles();
   return (
-    <div>
+    <div id="About">
       <div className={classes.body}>
         <Typography variant="h3" className={classes.heading} gutterBottom>
           What is Covid-19 ?
