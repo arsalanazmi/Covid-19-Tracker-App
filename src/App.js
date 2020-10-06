@@ -8,8 +8,8 @@ import {Banner,Heading} from "./Images"
 
 function App() {
   const [country, setCountry] = useState();
-  const fetchedData = createResource(country);
   
+  const fetchedData = createResource(country);
   const handleCountryChange = async (country) => {
      await fetchGlobalData(country);
     setCountry(await country);
