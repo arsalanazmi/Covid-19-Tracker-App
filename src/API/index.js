@@ -16,20 +16,6 @@ export const fetchGlobalData = async (country) => {
   }
 };
 
-const fetchDailyData = async () => {
-  try {
-    const { data } = await axios.get(`${url}/daily`);
-    const modifiedData = data.map((dailyData) => ({
-      confirmed: dailyData.confirmed.total,
-      deaths: dailyData.deaths.total,
-      date: dailyData.reportDate,
-    }));
-    return modifiedData;
-  } catch (error) {
-    return error;
-  }
-};
-
 const fetchCountries = async () => {
   try {
     const {data:{countries}} = await axios.get(`${url}/countries`)
@@ -69,7 +55,6 @@ const wrapPromise = (promise) => {
 const createResource = (country) => {
   return {
     globalData: wrapPromise(fetchGlobalData(country)),
-    dailyData: wrapPromise(fetchDailyData(country)),
     countriesList: wrapPromise(fetchCountries(country)),
   };
 };

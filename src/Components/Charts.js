@@ -1,8 +1,7 @@
 import React from "react";
-import { Line, Bar, Pie } from "react-chartjs-2";
+import { Bar, Pie } from "react-chartjs-2";
 
 const Charts = ({ data, country }) => {
-  const dailyData = data.dailyData.read();
   const { confirmed, recovered, deaths } = data.globalData.read();
 
   const pieChart = {
@@ -12,26 +11,6 @@ const Charts = ({ data, country }) => {
         data: [confirmed.value, recovered.value, deaths.value],
         backgroundColor: ["#ef9d1a", "#3da063", "#f86161"],
         hoverBackgroundColor: ["#c47807", "#3c6d36", "#ed3131"],
-      },
-    ],
-  };
-
-  const lineChart = {
-    labels: dailyData.map(({ date }) => date),
-    datasets: [
-      {
-        data: dailyData.map(({ confirmed }) => confirmed),
-        label: "Infected",
-        fill: true,
-        backgroundColor: "#fcf4de",
-        borderColor: "#ef9d1a",
-      },
-      {
-        data: dailyData.map(({ deaths }) => deaths),
-        label: "Deaths",
-        fill: true,
-        backgroundColor: "#fcd4c9",
-        borderColor: "red",
       },
     ],
   };
@@ -49,7 +28,11 @@ const Charts = ({ data, country }) => {
   };
 
   return (
-    <div className="chartContainer" id="Charts" style={{ width: "80%", margin: "0 auto" }}>
+    <div
+      className="chartContainer"
+      id="Charts"
+      style={{ width: "80%", margin: "0 auto" }}
+    >
       <Pie data={pieChart} width={640} height={280} />
       <br />
       {country ? (
@@ -59,11 +42,21 @@ const Charts = ({ data, country }) => {
           height={45}
           options={{
             legend: { display: false },
+
             title: { display: true, text: `Covid-19 Stats in  ${country}` },
           }}
         />
       ) : (
-        <Line data={lineChart} />
+        <Bar
+          data={barChart}
+          width={100}
+          height={45}
+          options={{
+            legend: { display: false },
+
+            title: { display: true, text: `Covid-19 Global Stats` },
+          }}
+        />
       )}
     </div>
   );
